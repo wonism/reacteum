@@ -1,0 +1,36 @@
+{
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-class-properties",
+    ["transform-object-rest-spread", { "useBuiltIns": true }],
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": true,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }],
+    "emotion"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "> 10%", "ie 9"]
+        },
+        "modules": false
+      }
+    ],
+    "react"
+  ],
+  "env": {
+    "production": {
+      "plugins": [["emotion", { "hoist": true }]]
+    },
+    "development": {
+      "plugins": [
+        ["emotion", { "sourceMap": true, "autoLabel": true }]
+      ]
+    }
+  }
+}
