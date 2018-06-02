@@ -53,5 +53,12 @@ module.exports = {
         'react/prop-types': off,
       },
     },
+    {
+      files: ['src/**/*.test.js'],
+      rules: {
+        'max-len': off,
+        'no-undef': off,
+      },
+    },
   ],
 };

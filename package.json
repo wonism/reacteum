@@ -1,6 +1,6 @@
 {
   "name": "reacteum",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Boilerplate for React JS",
   "keywords": [
     "react",
@@ -19,7 +19,7 @@
     "build:server": "npm run build:client && NODE_ENV=production webpack -p --config config/webpack.config.server.js",
     "lint": "eslint src/**/*.js || true",
     "format": "prettier-eslint --write",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --bail",
     "precommit": "lint-staged"
   },
   "author": "wonism <yocee57@gmail.com>",
@@ -83,6 +83,7 @@
     "nodemon": "^1.17.5",
     "prettier": "^1.13.4",
     "prettier-eslint-cli": "^4.7.1",
+    "redux-mock-store": "^1.5.1",
     "webpack": "^4.9.1",
     "webpack-assets-manifest": "^3.0.1",
     "webpack-cli": "^2.1.4",
