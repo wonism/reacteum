@@ -1,6 +1,7 @@
 # Reacteum
 
 [![npm version](https://badge.fury.io/js/reacteum.svg)](https://badge.fury.io/js/reacteum)
+[![Build Status](https://travis-ci.org/wonism/reacteum.svg)](https://travis-ci.org/wonism/reacteum)
 
 ## Usage
 
