@@ -1,4 +1,4 @@
-import { version } from 'package';
+import { version } from '_/package.json';
 
 export default {
   version,

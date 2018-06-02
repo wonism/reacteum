@@ -7,17 +7,19 @@ import appReducers from '~/store/app/reducers';
 import appInitializer from '~/store/app/initializer';
 /* sagas */
 import sagas from '~/store/sagas';
-/* history */
-import history from '~/store/history';
 /* utils */
 import createReducer from '~/utils/createReducer';
 import pipe from '~/utils/pipe';
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isBrowser = process.env.BROWSER || false;
 
-const composeEnhancers = isProduction ?
-  compose :
-  global.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || require('redux-devtools-extension').composeWithDevTools;
+/* history */
+const history = isBrowser ? require('~/store/history') : null;
+
+const composeEnhancers = isProduction
+  ? compose
+  : global.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || require('redux-devtools-extension').composeWithDevTools;
 
 const initialState = {
   app: appInitialState,
@@ -28,17 +30,11 @@ const reducers = combineReducers({
   routing: routerReducer,
 });
 
-const initializeStore = pipe(
-  appInitializer,
-);
+const initializeStore = pipe(appInitializer);
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middlewares = [
-  sagaMiddleware,
-  routerMiddleware(history),
-  (isProduction ? null : null),
-].filter(_ => _);
+const middlewares = [sagaMiddleware, history ? routerMiddleware(history) : null, isProduction ? null : null].filter(_ => _);
 
 const middleware = applyMiddleware.apply(null, middlewares);
 const createStoreWithMiddleware = composeEnhancers(middleware)(createStore);

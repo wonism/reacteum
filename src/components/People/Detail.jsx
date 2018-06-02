@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import Spinner from '~/styled/Spinner';
 import List from './List';
 
@@ -36,6 +37,10 @@ export default class Detail extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>Reacteum - People #{match.params.id}</title>
+          <meta name="keyword" content="reacteum,react,redux,redux-saga,react-helmet,emotion" />
+        </Helmet>
         <h1>People #{match.params.id}</h1>
         <List match={match} />
         {this.props.isRequested ? <Spinner /> : null}

@@ -9,7 +9,14 @@
       "regenerator": true,
       "moduleName": "babel-runtime"
     }],
-    "emotion"
+    "emotion",
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "_": ".",
+        "~": "./src"
+      }
+    }]
   ],
   "presets": [
     [
@@ -17,8 +24,7 @@
       {
         "targets": {
           "browsers": ["last 2 versions", "> 10%", "ie 9"]
-        },
-        "modules": false
+        }
       }
     ],
     "react"

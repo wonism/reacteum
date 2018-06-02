@@ -24,6 +24,7 @@ const devConfig = {
       process: {
         env: {
           NODE_ENV: JSON.stringify('development'),
+          BROWSER: true,
         },
       },
     }),

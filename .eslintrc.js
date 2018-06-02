@@ -46,4 +46,12 @@ module.exports = {
     'react/no-unescaped-entities': off,
   },
   parser: 'babel-eslint',
+  overrides: [
+    {
+      files: ['server/app.js', 'build/server.js'],
+      rules: {
+        'react/prop-types': off,
+      },
+    },
+  ],
 };

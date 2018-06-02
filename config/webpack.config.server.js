@@ -1,25 +1,27 @@
 const webpack = require('webpack');
-const WebpackAssetsManifest = require('webpack-assets-manifest');
+const nodeExternals = require('webpack-node-externals');
 const webpackConfig = require('./webpack.config.base');
-const { __PUBLIC__ } = require('./paths');
+const { __SERVER_ENTRY__, __BUILD__ } = require('./paths');
 
 const prodConfig = {
   mode: 'production',
+  entry: __SERVER_ENTRY__,
   output: {
-    path: __PUBLIC__,
+    path: __BUILD__,
     publicPath: '/',
-    filename: 'assets/javascripts/[hash]/bundle-[name].js',
-    chunkFilename: 'assets/javascripts/[hash]/bundle-[name].chunk.js',
-    libraryTarget: 'umd',
-    globalObject: 'this',
+    filename: 'server.js',
   },
+  target: 'node',
+  node: {
+    __dirname: false,
+  },
+  externals: nodeExternals(),
   plugins: [
-    new WebpackAssetsManifest({}),
     new webpack.DefinePlugin({
       process: {
         env: {
           NODE_ENV: JSON.stringify('production'),
-          BROWSER: true,
+          BROWSER: false,
         },
       },
     }),

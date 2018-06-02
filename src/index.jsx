@@ -11,21 +11,10 @@ import {
   People,
   NoMatch,
 } from '~/pages';
+import { bodyStyles } from '~/constants';
 
 const root = global.document.getElementById('app-root');
-
-const globalStyle = css`
-  margin: 0;
-  box-sizing: border-box;
-
-  * {
-    box-sizing: border-box;
-    &:before,
-    &:after {
-      box-sizing: border-box;
-    }
-  }
-`;
+const globalStyle = css`${bodyStyles}`;
 global.document.body.classList.add(globalStyle);
 
 const App = () => (
@@ -39,3 +28,5 @@ const App = () => (
 );
 
 render(<App />, root);
+
+export default App;
