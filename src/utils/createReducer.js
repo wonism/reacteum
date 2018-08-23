@@ -1,5 +1,5 @@
-const createReducer = (reducers = {}, initialState = {}) =>
-  (state = initialState, { type, ...action }) =>
-    (({}).hasOwnProperty.call(reducers, type) ? reducers[type](state, action) : state);
+/** @flow */
+const createReducer = (reducers: Object = {}, initialState: Object = {}) => (state: Object = initialState, { type, ...action }: { type: string }) =>
+  ({}.hasOwnProperty.call(reducers, type) ? reducers[type](state, action) : state);
 
 export default createReducer;

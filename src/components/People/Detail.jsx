@@ -1,62 +1,63 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+/** @jsx createElement */
+/** @flow */
+import { createElement, Fragment, Component, type Fragment as FragmentType } from 'react';
 import { Helmet } from 'react-helmet';
+// dumb components
+import List from '~/components/People/List';
 import Spinner from '~/styled/Spinner';
-import List from './List';
+// types
+import type { People } from '~/store/app/initialState';
 
-export default class Detail extends Component {
-  static propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
-    isRequested: PropTypes.bool.isRequired,
-    people: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }),
-    getPeople: PropTypes.func.isRequired,
-  };
+type MatchProp = { +params: { +id: string } };
+type GetPeopleProp = (input: string) => Function;
+type Props = {
+  +match: MatchProp,
+  +getPeople: GetPeopleProp,
+  +isRequested: boolean,
+  +people: People,
+};
+type PropsNotFromState = {
+  +match: MatchProp,
+  +getPeople: GetPeopleProp,
+};
+export type PropsFromState = $Diff<Props, PropsNotFromState>;
 
-  static defaultProps = {
-    people: null,
-  };
-
-  componentDidMount() {
+export default class Detail extends Component<Props> {
+  componentDidMount(): void {
     this.props.getPeople(this.props.match.params.id);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props): void {
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.props.getPeople(this.props.match.params.id);
     }
   }
 
-  render() {
-    const { match } = this.props;
+  render(): FragmentType {
+    const { match, isRequested, people }: Props = this.props;
 
     return (
-      <div>
+      <Fragment>
         <Helmet>
           <title>Reacteum - People #{match.params.id}</title>
           <meta name="keyword" content="reacteum,react,redux,redux-saga,react-helmet,emotion" />
         </Helmet>
         <h1>People #{match.params.id}</h1>
         <List match={match} />
-        {this.props.isRequested ? <Spinner /> : null}
-        {!this.props.isRequested && this.props.people ? (
+        {isRequested ? <Spinner /> : null}
+        {!isRequested && people ? (
           <div>
             <br />
-            {`Hello, I'm ${this.props.people.name}!`}
+            {`Hello, I'm ${people.name}!`}
           </div>
         ) : null}
-        {!this.props.isRequested && !this.props.people ? (
+        {!isRequested && !people ? (
           <div>
             <br />
             There's no people
           </div>
         ) : null}
-      </div>
+      </Fragment>
     );
   }
 }

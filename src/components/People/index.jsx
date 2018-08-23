@@ -1,14 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/** @jsx createElement */
+/** @flow */
+import { createElement, Fragment, type Fragment as FragmentType } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route } from 'react-router-dom';
 import Detail from '~/containers/People/Detail';
 import List from './List';
 
-const People = ({
-  match,
-}) => (
-  <div>
+export type Props = {
+  match: {
+    url: string,
+    isExact: boolean,
+  },
+};
+
+const People = ({ match }: Props): FragmentType => (
+  <Fragment>
     <Route exact path={match.url} render={() => <h1>Select People</h1>} />
     <Route path={`${match.url}/:id`} component={Detail} />
     {match.isExact ? (
@@ -20,14 +26,7 @@ const People = ({
         <List match={match} />
       </div>
     ) : null}
-  </div>
+  </Fragment>
 );
-
-People.propTypes = {
-  match: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    isExact: PropTypes.bool.isRequired,
-  }).isRequired,
-};
 
 export default People;

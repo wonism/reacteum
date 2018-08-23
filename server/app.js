@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx createElement */
+import { createElement } from 'react';
 import { StaticRouter as Router, Route, Switch } from 'react-router-dom';
 /* pages */
 import Home from '~/pages/Home';

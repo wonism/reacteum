@@ -1,6 +1,14 @@
+/** @flow */
 import { GET_PEOPLE } from './actionTypes';
 
-export const getPeople = id => ({
+type Action = {
+  +type: string,
+  +payload: {
+    +id: string,
+  },
+};
+
+export const getPeople = (id: string): Action => ({
   type: GET_PEOPLE,
   payload: {
     id,

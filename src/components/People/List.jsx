@@ -1,17 +1,15 @@
-import React from 'react';
-import { flow, range, map } from 'lodash/fp';
+/** @jsx createElement */
+/** @flow */
+import { createElement, type Element } from 'react';
 import Link from '~/styled/Link';
 
-const List = () => (
+const List = (): Element<'ul'> => (
   <ul>
-    {flow(
-      range,
-      map(id => (
-        <li key={id}>
-          <Link to={`/people/${id}`}>People #{id}</Link>
-        </li>
-      ))
-    )(1, 5)}
+    {[1, 2, 3, 4, 5].map((id: number): Element<'li'> => (
+      <li key={id}>
+        <Link to={`/people/${id}`}>People #{id}</Link>
+      </li>
+    ))}
   </ul>
 );
 

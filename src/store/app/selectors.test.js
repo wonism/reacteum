@@ -1,11 +1,12 @@
+import appState from './initialState';
 import { getVersion, isRequested, getPeople } from './selectors';
 
+const initialState = { app: appState };
+
 describe('Get version', () => {
-  describe('Edge Cases', () => {
-    test('Null State', () => expect(getVersion(null)).toEqual(undefined));
-    test('No app in State', () => expect(getVersion({})).toEqual(undefined));
-    test('Null app State', () =>
-      expect(getVersion({ app: null })).toEqual(undefined));
+  describe('Initial Cases', () => {
+    test('Initial State', () =>
+      expect(getVersion(initialState)).toEqual(appState.version));
   });
 
   describe('Normal Cases', () => {
@@ -19,11 +20,9 @@ describe('Get version', () => {
 });
 
 describe('Is requested?', () => {
-  describe('Edge Cases', () => {
-    test('Null State', () => expect(isRequested(null)).toEqual(undefined));
-    test('No app in State', () => expect(isRequested({})).toEqual(undefined));
-    test('Null app State', () =>
-      expect(isRequested({ app: null })).toEqual(undefined));
+  describe('Initial Cases', () => {
+    test('Initial State', () =>
+      expect(isRequested(initialState)).toEqual(appState.isRequested));
   });
 
   describe('Normal Cases', () => {
@@ -35,11 +34,9 @@ describe('Is requested?', () => {
 });
 
 describe('Get people', () => {
-  describe('Edge Cases', () => {
-    test('Null State', () => expect(getPeople(null)).toEqual(undefined));
-    test('No app in State', () => expect(getPeople({})).toEqual(undefined));
-    test('Null app State', () =>
-      expect(getPeople({ app: null })).toEqual(undefined));
+  describe('Initial Cases', () => {
+    test('Initial State', () =>
+      expect(getPeople(initialState)).toEqual(appState.people));
   });
 
   describe('Normal Cases', () => {

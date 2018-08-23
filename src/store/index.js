@@ -1,3 +1,4 @@
+/** @flow */
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
@@ -34,9 +35,7 @@ const initializeStore = pipe(appInitializer);
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middlewares = [sagaMiddleware, history ? routerMiddleware(history) : null, isProduction ? null : null].filter(_ => _);
-
-const middleware = applyMiddleware.apply(null, middlewares);
+const middleware = history ? applyMiddleware(sagaMiddleware, routerMiddleware(history)) : applyMiddleware(sagaMiddleware);
 const createStoreWithMiddleware = composeEnhancers(middleware)(createStore);
 const store = createStoreWithMiddleware(reducers, initialState);
 

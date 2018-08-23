@@ -1,4 +1,6 @@
-import React from 'react';
+/** @jsx createElement */
+/** @flow */
+import { createElement, type Element } from 'react';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -17,7 +19,7 @@ const root = global.document.getElementById('app-root');
 const globalStyle = css`${bodyStyles}`;
 global.document.body.classList.add(globalStyle);
 
-const App = () => (
+const App = (): Element<any> => (
   <Router>
     <Switch>
       <Route exact path="/" component={Home} />

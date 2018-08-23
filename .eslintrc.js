@@ -12,6 +12,9 @@ module.exports = {
     node: true,
     browser: true,
   },
+  globals: {
+    '$Diff': true,
+  },
   rules: {
     'comma-dangle': [
       error,
@@ -36,10 +39,18 @@ module.exports = {
     'no-console': isProduction ? error : off,
     'no-multiple-empty-lines': [error, { max: error, maxEOF: error }],
     'no-implicit-coercion': error,
+    'no-undef': off,
     'no-underscore-dangle': off,
-    'no-unused-vars': [error, { args: 'after-used', ignoreRestSiblings: false }],
+    'no-unused-vars': [
+      error, {
+        args: 'after-used',
+        ignoreRestSiblings: false,
+        varsIgnorePattern: 'Fragment',
+      },
+    ],
     'object-curly-newline': [error, { consistent: true }],
     'prefer-spread': off,
+    'quotes': [error, 'single'],
     'react/jsx-filename-extension': [error, { extensions: ['.js', '.jsx'] }],
     'react/jsx-no-target-blank': error,
     'react/no-typos': error,

@@ -1,9 +1,11 @@
-import React from 'react';
+/** @jsx createElement */
+/** @flow */
+import { createElement, type Element } from 'react';
 import Header from '~/styled/Header';
 import Link from '~/styled/Link';
 import List from '~/styled/List';
 
-const Gnb = () => (
+const Gnb = (): Element<'header'> => (
   <Header>
     <nav>
       <List>

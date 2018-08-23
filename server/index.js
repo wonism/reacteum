@@ -4,7 +4,7 @@ import logger from 'morgan';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
-import { flow, keys, map, get, add, __ } from 'lodash/fp';
+import pipe from '~/utils/pipe';
 import { bodyStyles } from '~/constants';
 import App from './app';
 import html from './html';
@@ -20,12 +20,15 @@ server.get('*', (req, res) => {
   const location = req.url;
   const context = {};
   const body = renderToString(<App location={location} context={context} />);
-  const files = flow(
-    keys,
-    map(add(__, '.js')),
-    map(get(__, manifest)),
-    map(add('/'))
+  const files = pipe(
+    Object.keys,
+    files => files.map((file) => {
+      const key = `${file}.js`;
+
+      return `/${manifest[key]}`;
+    }),
   )(entry);
+
   const helmet = Helmet.renderStatic();
   const head = helmet.title + helmet.meta + helmet.link;
   const styles = `body { ${bodyStyles} }`;

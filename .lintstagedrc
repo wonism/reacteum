@@ -1,4 +1,4 @@
 {
-  "*.js": ["prettier-eslint --write", "eslint --fix --debug --ignore-pattern '!.eslintrc.js'", "git add", "jest --bail --findRelatedTests"],
+  "./src/**/*.js": ["prettier-eslint --write", "eslint --fix --debug --ignore-pattern '!.eslintrc.js'", "git add", "jest --bail --findRelatedTests"],
   ".*{rc, json}": ["jsonlint"]
 }

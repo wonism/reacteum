@@ -1,18 +1,40 @@
-import { flow, set, get } from 'lodash/fp';
+/** @flow */
+import update from 'immutability-helper';
 import { GET_PEOPLE, GET_PEOPLE_SUCCESS, GET_PEOPLE_FAILED } from './actionTypes';
+import { type State, type People } from './initialState';
 
 export default {
-  [GET_PEOPLE]: flow(
-    set('isRequested', true),
-    set('people', null)
-  ),
-  [GET_PEOPLE_SUCCESS]: (state, { payload }) =>
-    flow(
-      set('isRequested', false),
-      set('people', get('people')(payload))
-    )(state),
-  [GET_PEOPLE_FAILED]: flow(
-    set('isRequested', false),
-    set('people', null)
-  ),
+  [GET_PEOPLE]: (state: State): State => {
+    const newState = update(state, {
+      isRequested: {
+        $set: true,
+      },
+      people: {
+        $set: null,
+      },
+    });
+
+    return newState;
+  },
+  [GET_PEOPLE_SUCCESS]: (state: State, { payload }: { payload: { people: People } }): State => {
+    const newState = update(state, {
+      isRequested: {
+        $set: false,
+      },
+      people: {
+        $set: payload.people,
+      },
+    });
+
+    return newState;
+  },
+  [GET_PEOPLE_FAILED]: (state: State): State => {
+    const newState = update(state, {
+      isRequested: {
+        $set: false,
+      },
+    });
+
+    return newState;
+  },
 };

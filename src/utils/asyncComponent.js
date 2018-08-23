@@ -1,18 +1,18 @@
+/** @jsx createElement */
+/** @flow */
 // refer https://gist.github.com/acdlite/a68433004f9d6b4cbc83b5cc3990c194
-import React, { Component } from 'react';
+import { createElement, Component } from 'react';
+import { ComponentType } from '~/types';
 
-export default function asyncComponent(getComponent) {
-  return class AsyncComponent extends Component {
-    static Comp = null;
-
+export default function asyncComponent(getComponent: () => Promise<{ default: ComponentType }>) {
+  return class AsyncComponent extends Component<{}, { Comp: ComponentType | null }> {
     state = {
-      Comp: AsyncComponent.Comp,
+      Comp: null,
     };
 
     componentWillMount() {
       if (this.state.Comp === null) {
-        getComponent().then(({ default: Comp }) => {
-          AsyncComponent.Comp = Comp;
+        getComponent().then(({ default: Comp }: { default: ComponentType }) => {
           this.setState({ Comp });
         });
       }

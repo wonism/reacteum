@@ -1,10 +1,12 @@
-import React from 'react';
+/** @jsx createElement */
+/** @flow */
+import { createElement } from 'react';
 import { Provider } from 'react-redux';
 import store from '~/store';
 import Layout from '~/containers/Layout';
 import Home from '~/containers/Home';
 
-const HomePage = props => (
+const HomePage = (props: {}) => (
   <Provider store={store}>
     <Layout {...props}>
       <Home {...props} />

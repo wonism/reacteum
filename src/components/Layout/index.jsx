@@ -1,27 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/** @jsx createElement */
+/** @flow */
+import { createElement, Fragment, type Fragment as FragmentType, type Element } from 'react';
 import Main from '~/styled/Main';
 import Gnb from '~/components/Gnb';
 import Footer from '~/components/Footer';
 
-const Layout = ({
-  children,
-}) => (
-  <div>
+type Props = {
+  children: Element<any> | null,
+  version: string,
+};
+
+const Layout = ({ children, version }: Props): FragmentType => (
+  <Fragment>
     <Gnb />
     <Main>
       {children}
     </Main>
-    <Footer />
-  </div>
+    <Footer version={version} />
+  </Fragment>
 );
-
-Layout.propTypes = {
-  children: PropTypes.node,
-};
-
-Layout.defaultProps = {
-  children: null,
-};
 
 export default Layout;

@@ -1,14 +1,10 @@
 {
   "plugins": [
-    "syntax-dynamic-import",
-    "transform-class-properties",
-    ["transform-object-rest-spread", { "useBuiltIns": true }],
-    ["transform-runtime", {
-      "helpers": false,
-      "polyfill": true,
-      "regenerator": true,
-      "moduleName": "babel-runtime"
-    }],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-react-jsx",
+    ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
+    ["@babel/plugin-transform-runtime", { "corejs": 2 }],
     "emotion",
     ["module-resolver", {
       "root": ["."],
@@ -20,14 +16,15 @@
   ],
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "targets": {
           "browsers": ["last 2 versions", "> 10%", "ie 9"]
         }
       }
     ],
-    "react"
+    "@babel/preset-react",
+    "@babel/flow"
   ],
   "env": {
     "production": {
