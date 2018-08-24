@@ -27,3 +27,7 @@
 - etc.
   - Add LICENSE.md
   - Add CHANGELOG.md
+
+## 1.1.0 - 2018-08-25
+- New feature
+  - Add CLI

@@ -5,29 +5,29 @@
 
 ## Usage
 
-Step 1. Clone this repository
+### Create project with Reacteum CLI
 ```
-$ git clone https://github.com/wonism/reacteum.git
-$ cd reacteum
+# install the Reacteum CLI globally
+$ npm i -g reacteum-cli
+
+# create project
+$ reacteum new <<PROJECT_NAME>>
 ```
 
-Step 2. Install the packages
-```
-$ npm i
-```
-
-Step 3. Run server
+### Run server
 ```
 # webpack-dev-server
 $ npm run dev:client
+
 # express server
 $ npm run dev:server
 ```
 
-Step 4. Build
+### Build
 ```
 # client
 $ npm run build:client
+
 # server
 $ npm run build:server
 ```
