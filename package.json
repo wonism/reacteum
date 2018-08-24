@@ -1,6 +1,6 @@
 {
   "name": "reacteum",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Boilerplate for React JS",
   "keywords": [
     "react",
@@ -14,10 +14,10 @@
   "main": "n/a",
   "scripts": {
     "flow": "flow",
-    "dev:client": "NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js --hot --host 0.0.0.0",
-    "dev:server": "npm run build:client && nodemon server --exec babel-node",
-    "build:client": "NODE_ENV=production webpack -p --config config/webpack.config.prod.js",
-    "build:server": "npm run build:client && NODE_ENV=production webpack -p --config config/webpack.config.server.js",
+    "dev:client": "reacteum develop",
+    "dev:server": "reacteum serve",
+    "build:client": "reacteum bundle",
+    "build:server": "reacteum transpile",
     "lint": "eslint src/**/*.js || true",
     "format": "prettier-eslint --eslint-config-path ./.eslintrc.js --write",
     "test": "jest --bail",
@@ -54,6 +54,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
+    "reacteum-cli": "^1.0.0",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-saga": "^0.16.0",
