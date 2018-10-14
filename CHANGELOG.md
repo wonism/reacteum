@@ -31,3 +31,6 @@
 ## 1.1.0 - 2018-08-25
 - New feature
   - Add CLI
+
+## 1.1.1 - 2018-10-14
+- Resolve vulnerabilities
