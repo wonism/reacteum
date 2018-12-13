@@ -1,6 +1,6 @@
 {
   "name": "reacteum",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Boilerplate for React JS",
   "keywords": [
     "react",
@@ -44,7 +44,7 @@
     "express": "^4.16.3",
     "history": "^4.7.2",
     "immutability-helper": "^2.7.1",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "prop-types": "^15.6.1",
     "qs": "^6.5.2",
     "react": "^16.4.0",
@@ -54,7 +54,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
-    "reacteum-cli": "^1.0.0",
+    "reacteum-cli": "^1.0.2",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-saga": "^0.16.0",
@@ -97,7 +97,7 @@
     "webpack": "^4.9.1",
     "webpack-assets-manifest": "^3.0.1",
     "webpack-cli": "^2.1.4",
-    "webpack-dev-server": "^3.1.4",
+    "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.2",
     "webpack-node-externals": "^1.7.2"
   }

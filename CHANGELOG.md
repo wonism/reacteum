@@ -34,3 +34,7 @@
 
 ## 1.1.1 - 2018-10-14
 - Resolve vulnerabilities
+
+## 1.1.2 - 2018-12-13
+- Update `reacteum-cli`
+- Resolve vulnerabilities
