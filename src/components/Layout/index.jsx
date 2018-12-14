@@ -1,6 +1,5 @@
-/** @jsx createElement */
 /** @flow */
-import { createElement, Fragment, type Fragment as FragmentType, type Element } from 'react';
+import React, { type Fragment, type Element } from 'react';
 import Main from '~/styled/Main';
 import Gnb from '~/components/Gnb';
 import Footer from '~/components/Footer';
@@ -10,14 +9,14 @@ type Props = {
   version: string,
 };
 
-const Layout = ({ children, version }: Props): FragmentType => (
-  <Fragment>
+const Layout = ({ children, version }: Props): Fragment => (
+  <>
     <Gnb />
     <Main>
       {children}
     </Main>
     <Footer version={version} />
-  </Fragment>
+  </>
 );
 
 export default Layout;

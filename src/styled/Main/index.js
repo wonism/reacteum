@@ -1,6 +1,7 @@
-import styled from 'react-emotion';
+/** @flow */
+import styled from 'styled-components';
 
-export default styled.main`
+const Main: any = styled.main`
   margin: auto;
   max-width: 96%;
   min-height: calc(100vh - 64px);
@@ -10,3 +11,5 @@ export default styled.main`
     margin: 0;
   }
 `;
+
+export default Main;

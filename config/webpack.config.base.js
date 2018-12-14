@@ -3,7 +3,7 @@ const { __ROOT__, __SRC__, __APP__, __PACKAGE__ } = require('./paths');
 const config = {
   entry: {
     app: __APP__,
-    vendor: ['react', 'react-dom', 'react-redux', 'redux', 'redux-saga', 'react-router-dom', 'react-router-redux'],
+    vendor: ['react', 'react-dom', 'react-redux', 'redux', 'redux-saga', 'react-router-dom', 'react-router-redux', 'styled-components'],
   },
   resolve: {
     extensions: ['.js', '.jsx'],

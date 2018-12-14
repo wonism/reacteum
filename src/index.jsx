@@ -1,13 +1,12 @@
-/** @jsx createElement */
 /** @flow */
-import { createElement, type Element } from 'react';
+import React, { type Element, type Fragment } from 'react';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
-import { css } from 'emotion';
+import { createGlobalStyle } from 'styled-components';
 import {
   Home,
   People,
@@ -16,17 +15,23 @@ import {
 import { bodyStyles } from '~/constants';
 
 const root = global.document.getElementById('app-root');
-const globalStyle = css`${bodyStyles}`;
-global.document.body.classList.add(globalStyle);
+const GlobalStyle = createGlobalStyle`
+  body {
+    ${bodyStyles}
+  }
+`;
 
-const App = (): Element<any> => (
-  <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/people" component={People} />
-      <Route component={NoMatch} />
-    </Switch>
-  </Router>
+const App = (): Element<Fragment> => (
+  <>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/people" component={People} />
+        <Route component={NoMatch} />
+      </Switch>
+    </Router>
+    <GlobalStyle />
+  </>
 );
 
 render(<App />, root);

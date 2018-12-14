@@ -1,10 +1,11 @@
-import styled from 'react-emotion';
+/** @flow */
+import styled from 'styled-components';
 
-export default styled.i`
+const Spinner: any = styled.i`
   display: block;
   width: 32px;
   height: 32px;
-  background-color: hotpink;
+  background-color: ${({ color }) => color};
   -webkit-animation: spin 1.2s infinite ease-in-out;
   animation: spin 1.2s infinite ease-in-out;
 
@@ -23,3 +24,9 @@ export default styled.i`
     }
   }
 `;
+
+Spinner.defaultProps = {
+  color: '#e59',
+};
+
+export default Spinner;

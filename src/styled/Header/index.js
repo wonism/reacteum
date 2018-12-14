@@ -1,6 +1,9 @@
-import styled from 'react-emotion';
+/** @flow */
+import styled from 'styled-components';
 
-export default styled.header`
+const Header: any = styled.header`
   height: 32px;
   line-height: 32px;
 `;
+
+export default Header;

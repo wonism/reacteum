@@ -1,5 +1,9 @@
-import styled from 'react-emotion';
+/** @flow */
+import styled from 'styled-components';
+import { anchorStyle } from '~/styled/css';
 
-export default styled.a`
-  color: hotpink;
+const Anchor: any = styled.a`
+  ${anchorStyle}
 `;
+
+export default Anchor;

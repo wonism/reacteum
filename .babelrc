@@ -2,10 +2,13 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-transform-react-jsx",
+    ["@babel/plugin-transform-react-jsx", {
+      "pragma": "React.createElement",
+      "pragmaFrag": "React.Fragment"
+    }],
     ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
     ["@babel/plugin-transform-runtime", { "corejs": 2 }],
-    "emotion",
+    "styled-components",
     ["module-resolver", {
       "root": ["."],
       "alias": {
@@ -28,11 +31,11 @@
   ],
   "env": {
     "production": {
-      "plugins": [["emotion", { "hoist": true }]]
+      "plugins": [["styled-components", { "hoist": true }]]
     },
     "development": {
       "plugins": [
-        ["emotion", { "sourceMap": true, "autoLabel": true }]
+        ["styled-components", { "sourceMap": true, "autoLabel": true }]
       ]
     }
   }

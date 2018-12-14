@@ -1,6 +1,5 @@
-/** @jsx createElement */
 /** @flow */
-import { createElement } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import store from '~/store';
 import Layout from '~/containers/Layout';

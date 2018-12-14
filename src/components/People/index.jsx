@@ -1,6 +1,5 @@
-/** @jsx createElement */
 /** @flow */
-import { createElement, Fragment, type Fragment as FragmentType } from 'react';
+import React, { type Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import { Route } from 'react-router-dom';
 import Detail from '~/containers/People/Detail';
@@ -13,8 +12,8 @@ export type Props = {
   },
 };
 
-const People = ({ match }: Props): FragmentType => (
-  <Fragment>
+const People = ({ match }: Props): Fragment => (
+  <>
     <Route exact path={match.url} render={() => <h1>Select People</h1>} />
     <Route path={`${match.url}/:id`} component={Detail} />
     {match.isExact ? (
@@ -26,7 +25,7 @@ const People = ({ match }: Props): FragmentType => (
         <List match={match} />
       </div>
     ) : null}
-  </Fragment>
+  </>
 );
 
 export default People;

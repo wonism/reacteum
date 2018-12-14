@@ -1,6 +1,7 @@
-import styled from 'react-emotion';
+/** @flow */
+import styled from 'styled-components';
 
-export default styled.ul`
+const List: any = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
@@ -11,3 +12,5 @@ export default styled.ul`
     flex: 1;
   }
 `;
+
+export default List;

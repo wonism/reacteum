@@ -1,6 +1,5 @@
-/** @jsx createElement */
 /** @flow */
-import { createElement, type Element } from 'react';
+import React, { type Element } from 'react';
 import Anchor from '~/styled/Anchor';
 import StyledFooter from '~/styled/Footer';
 

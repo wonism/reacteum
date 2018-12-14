@@ -1,6 +1,5 @@
-/** @jsx createElement */
 /** @flow */
-import { createElement, Fragment, Component, type Fragment as FragmentType } from 'react';
+import React, { Component, type Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 // dumb components
 import List from '~/components/People/List';
@@ -33,11 +32,11 @@ export default class Detail extends Component<Props> {
     }
   }
 
-  render(): FragmentType {
+  render(): Fragment {
     const { match, isRequested, people }: Props = this.props;
 
     return (
-      <Fragment>
+      <>
         <Helmet>
           <title>Reacteum - People #{match.params.id}</title>
           <meta name="keyword" content="reacteum,react,redux,redux-saga,react-helmet,emotion" />
@@ -57,7 +56,7 @@ export default class Detail extends Component<Props> {
             There's no people
           </div>
         ) : null}
-      </Fragment>
+      </>
     );
   }
 }

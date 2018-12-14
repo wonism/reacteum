@@ -6,7 +6,7 @@ const error = 2;
 
 module.exports = {
   extends: ['airbnb', 'plugin:import/errors', 'plugin:import/warnings'],
-  plugins: ['import'],
+  plugins: ['import', 'babel'],
   env: {
     es6: true,
     node: true,
@@ -16,6 +16,7 @@ module.exports = {
     '$Diff': true,
   },
   rules: {
+    'babel/quotes': [error, 'single'],
     'comma-dangle': [
       error,
       {
@@ -45,16 +46,17 @@ module.exports = {
       error, {
         args: 'after-used',
         ignoreRestSiblings: false,
-        varsIgnorePattern: 'Fragment',
+        varsIgnorePattern: 'createElement|Fragment',
       },
     ],
     'object-curly-newline': [error, { consistent: true }],
     'prefer-spread': off,
-    'quotes': [error, 'single'],
+    'quotes': off,
     'react/jsx-filename-extension': [error, { extensions: ['.js', '.jsx'] }],
     'react/jsx-no-target-blank': error,
     'react/no-typos': error,
     'react/no-unescaped-entities': off,
+    'react/react-in-jsx-scope': off,
   },
   parser: 'babel-eslint',
   overrides: [

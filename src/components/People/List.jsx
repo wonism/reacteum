@@ -1,6 +1,5 @@
-/** @jsx createElement */
 /** @flow */
-import { createElement, type Element } from 'react';
+import React, { type Element } from 'react';
 import Link from '~/styled/Link';
 
 const List = (): Element<'ul'> => (

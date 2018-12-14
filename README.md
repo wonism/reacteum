@@ -37,13 +37,14 @@ $ npm run build:server
   - Refer https://github.com/erikras/ducks-modular-redux
 - Asynchronous redux with `redux-saga`
 - Selectors pattern with `reselector`
-- CSS in JS with `react-emotion`
+- CSS in JS with `styled-components`
 - Client side routing with `react-router-dom`
 - Code splitting
 - Handing meta tags with `react-helmet`
 - Server side rendering
 - Test with `jest`
 - Formatting codes with `eslint` & `prettier`
+- Interactive UI test with `storybook`
 
 ## Provides
 - react ^15.x || ^16.x
@@ -55,14 +56,14 @@ $ npm run build:server
 - reselect ^3.x
 - react-router-dom ^4.x
 - react-router-redux ^4.x
-- react-emotion ^9.x
+- styled-components ^4.x
   - css-in-js
 - react-helmet ^5.x
   - meta
 
 ## Bundling
 - webpack ^4.x
-- webpack-cli ^2.x
+- webpack-cli ^3.x
 
 ## Test
 - jest ^23.x

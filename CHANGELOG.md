@@ -38,3 +38,13 @@
 ## 1.1.2 - 2018-12-13
 - Update `reacteum-cli`
 - Resolve vulnerabilities
+
+## 1.2.0 - 2018-12-14
+- New feature
+  - Add storybook
+  - CSS in JS with `styled-components`
+- Deprecated feature
+  - CSS in JS with `react-emotion`
+- Packages
+  - Install `react-async-component`
+  - Update `reacteum-cli`

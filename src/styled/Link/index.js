@@ -1,6 +1,10 @@
-import styled from 'react-emotion';
-import { Link } from 'react-router-dom';
+/** @flow */
+import styled from 'styled-components';
+import { Link as LinkComponent } from 'react-router-dom';
+import { anchorStyle } from '~/styled/css';
 
-export default styled(Link)`
-  color: hotpink;
+const Link: any = styled(LinkComponent)`
+  ${anchorStyle}
 `;
+
+export default Link;

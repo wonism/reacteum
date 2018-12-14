@@ -1,7 +1,10 @@
-import styled from 'react-emotion';
+/** @flow */
+import styled from 'styled-components';
 
-export default styled.header`
+const Footer: any = styled.header`
   height: 32px;
   line-height: 32px;
   text-align: center;
 `;
+
+export default Footer;
