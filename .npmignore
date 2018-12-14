@@ -23,3 +23,7 @@ node_modules/
 
 public/
 build/
+
+.storybook/
+stories/
+storybook-static/
