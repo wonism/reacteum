@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import logger from 'morgan';
+import compression from 'compression';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
@@ -14,6 +15,7 @@ import manifest from '../public/manifest.json';
 const port = 3000;
 const server = express();
 
+server.use(compression());
 server.use(express.static(path.resolve(__dirname, '../public')));
 
 server.get('*', (req, res) => {

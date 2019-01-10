@@ -45,6 +45,7 @@ $ npm run build:server
 - Test with `jest`
 - Formatting codes with `eslint` & `prettier`
 - Interactive UI test with `storybook`
+- Support `gzipped` static files
 
 ## Provides
 - react ^15.x || ^16.x

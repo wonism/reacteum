@@ -1,10 +1,10 @@
 {
   "engines": {
-    "node" : ">= 6.0.0",
-    "npm" : ">= 5.2.0"
+    "node": ">= 6.0.0",
+    "npm": ">= 5.2.0"
   },
   "name": "reacteum",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Boilerplate for React JS",
   "keywords": [
     "react",
@@ -47,6 +47,7 @@
   "dependencies": {
     "@babel/runtime-corejs2": "^7.0.0-rc.1",
     "babel-plugin-styled-components": "^1.9.4",
+    "compression": "^1.7.3",
     "express": "^4.16.3",
     "history": "^4.7.2",
     "immutability-helper": "^2.7.1",
@@ -92,6 +93,7 @@
     "babel-jest": "^23.0.1",
     "babel-loader": "^7.1.4",
     "babel-plugin-module-resolver": "^3.1.1",
+    "compression-webpack-plugin": "^2.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.10.0",
@@ -113,7 +115,7 @@
     "webpack": "^4.27.1",
     "webpack-assets-manifest": "^3.0.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.1.2",
     "webpack-node-externals": "^1.7.2",
     "why-did-you-update": "^1.0.6"

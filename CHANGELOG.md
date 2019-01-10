@@ -48,3 +48,7 @@
 - Packages
   - Install `react-async-component`
   - Update `reacteum-cli`
+
+## 1.2.1 - 2019-01-10
+- New feature
+  - Support `gzip` (for both of `server` and `client`)

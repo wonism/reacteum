@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
+const CompressionPlugin = require('compression-webpack-plugin');
 const webpackConfig = require('./webpack.config.base');
 const { __PUBLIC__ } = require('./paths');
 
@@ -22,6 +23,9 @@ const prodConfig = {
           BROWSER: true,
         },
       },
+    }),
+    new CompressionPlugin({
+      test: /\.js$|\.css$|\.html$/,
     }),
   ],
   optimization: {
