@@ -1,6 +1,4 @@
-/** @flow */
-
-export const bodyStyles: string = `
+export const bodyStyles = `
   margin: 0;
   box-sizing: border-box;
 

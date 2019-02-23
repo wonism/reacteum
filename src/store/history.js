@@ -1,8 +1,7 @@
-/** @flow */
-import createHistory, { type BrowserHistory } from 'history/createBrowserHistory';
+import createHistory from 'history/createBrowserHistory';
 import qs from 'qs';
 
-const history: BrowserHistory = createHistory();
+const history = createHistory();
 
 history.location = {
   ...history.location,

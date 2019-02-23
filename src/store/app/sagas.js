@@ -1,16 +1,13 @@
-/** @flow */
-import { type Saga } from 'redux-saga';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { get } from '~/store/api';
 import { GET_PEOPLE, GET_PEOPLE_SUCCESS, GET_PEOPLE_FAILED } from './actionTypes';
-import { type People } from './initialState';
 
-export function* getPeople({ payload }: { payload: { id: string } }): Saga<void> {
+export function* getPeople({ payload }) {
   try {
     const response = yield call(get, `https://swapi.co/api/people/${payload.id}/`);
 
     if (response.ok) {
-      const result: People = yield response.json();
+      const result = yield response.json();
 
       yield put({ type: GET_PEOPLE_SUCCESS, payload: { people: result } });
     } else {
@@ -31,6 +28,6 @@ export function* getPeople({ payload }: { payload: { id: string } }): Saga<void>
   }
 }
 
-export default function* sagas(): Saga<void> {
+export default function* sagas() {
   yield all([takeLatest(GET_PEOPLE, getPeople)]);
 }

@@ -26,8 +26,7 @@
         }
       }
     ],
-    "@babel/preset-react",
-    "@babel/flow"
+    "@babel/preset-react"
   ],
   "env": {
     "production": {

@@ -1,5 +1,4 @@
-/** @flow */
-import React, { type Element, type Fragment } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -21,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const App = (): Element<Fragment> => (
+const App = () => (
   <>
     <Router>
       <Switch>

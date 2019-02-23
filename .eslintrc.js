@@ -6,7 +6,7 @@ const error = 2;
 
 module.exports = {
   extends: ['airbnb', 'plugin:import/errors', 'plugin:import/warnings'],
-  plugins: ['import', 'babel'],
+  plugins: ['react-hooks', 'import', 'babel'],
   env: {
     es6: true,
     node: true,
@@ -36,7 +36,7 @@ module.exports = {
     indent: off,
     'jsx-a11y/anchor-is-valid': off,
     'jsx-a11y/click-events-have-key-events': error,
-    'max-len': [error, 150, { ignoreComments: true }],
+    'max-len': [error, { code: 150 }],
     'no-console': isProduction ? error : off,
     'no-multiple-empty-lines': [error, { max: error, maxEOF: error }],
     'no-implicit-coercion': error,
@@ -57,6 +57,7 @@ module.exports = {
     'react/no-typos': error,
     'react/no-unescaped-entities': off,
     'react/react-in-jsx-scope': off,
+    'react-hooks/rules-of-hooks': error,
   },
   parser: 'babel-eslint',
   overrides: [

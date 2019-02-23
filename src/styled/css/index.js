@@ -1,7 +1,6 @@
-/** @flow */
 import { css } from 'styled-components';
 
-export const anchorStyle: any = css`
+export const anchorStyle = css`
   cursor: pointer;
 
   &,

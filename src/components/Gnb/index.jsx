@@ -1,10 +1,9 @@
-/** @flow */
-import React, { type Element } from 'react';
+import React from 'react';
 import Header from '~/styled/Header';
 import Link from '~/styled/Link';
 import List from '~/styled/List';
 
-const Gnb = (): Element<'header'> => (
+const Gnb = () => (
   <Header>
     <nav>
       <List>

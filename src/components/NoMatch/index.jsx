@@ -1,8 +1,7 @@
-/** @flow */
-import React, { type Fragment } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const NoMatch = (): Fragment => (
+const NoMatch = () => (
   <>
     <Helmet>
       <title>Reacteum - 404 Page Not Found</title>

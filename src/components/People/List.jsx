@@ -1,12 +1,14 @@
-/** @flow */
-import React, { type Element } from 'react';
+import React from 'react';
 import Link from '~/styled/Link';
 
-const List = (): Element<'ul'> => (
+const List = () => (
   <ul>
-    {[1, 2, 3, 4, 5].map((id: number): Element<'li'> => (
+    {[1, 2, 3, 4, 5].map(id => (
       <li key={id}>
-        <Link to={`/people/${id}`}>People #{id}</Link>
+        <Link to={`/people/${id}`}>
+          People #
+          {id}
+        </Link>
       </li>
     ))}
   </ul>

@@ -47,13 +47,13 @@ $ npm run build:server
 - Interactive UI test with `storybook`
 
 ## Provides
-- react ^15.x || ^16.x
-- react-dom ^15.x || ^16.x
+- react ^16.3
+- react-dom ^16.3
 - prop-types ^15.x
 - redux ^4.x
-- react-redux ^5.x
+- react-redux ^6.x
 - redux-saga ^0.16.x
-- reselect ^3.x
+- reselect ^4.x
 - react-router-dom ^4.x
 - react-router-redux ^4.x
 - styled-components ^4.x

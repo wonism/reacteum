@@ -1,12 +1,9 @@
-/** @flow */
 import { connect } from 'react-redux';
 import Layout from '~/components/Layout';
 // selectors
 import { getVersion } from '~/store/app/selectors';
-// types
-import type { State as AppState } from '~/store/app/initialState';
 
-const mapStateToProps = (state: { app: AppState }): { version: string } => ({
+const mapStateToProps = state => ({
   version: getVersion(state),
 });
 const mapDispatchToProps = {};

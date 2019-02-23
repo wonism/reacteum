@@ -1,47 +1,53 @@
-/** @flow */
-import React, { Component, type Fragment } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 // dumb components
 import List from '~/components/People/List';
 import Spinner from '~/styled/Spinner';
-// types
-import type { People } from '~/store/app/initialState';
 
-type MatchProp = { +params: { +id: string } };
-type GetPeopleProp = (input: string) => Function;
-type Props = {
-  +match: MatchProp,
-  +getPeople: GetPeopleProp,
-  +isRequested: boolean,
-  +people: People,
-};
-type PropsNotFromState = {
-  +match: MatchProp,
-  +getPeople: GetPeopleProp,
-};
-export type PropsFromState = $Diff<Props, PropsNotFromState>;
+export default class Detail extends Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    getPeople: PropTypes.func.isRequired,
+    people: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    isRequested: PropTypes.bool.isRequired,
+  };
 
-export default class Detail extends Component<Props> {
-  componentDidMount(): void {
-    this.props.getPeople(this.props.match.params.id);
+  componentDidMount() {
+    const { getPeople, match } = this.props;
+    getPeople(match.params.id);
   }
 
-  componentDidUpdate(prevProps: Props): void {
-    if (this.props.match.params.id !== prevProps.match.params.id) {
-      this.props.getPeople(this.props.match.params.id);
+  componentDidUpdate(prevProps) {
+    const { match, getPeople } = this.props;
+
+    if (match.params.id !== prevProps.match.params.id) {
+      getPeople(match.params.id);
     }
   }
 
-  render(): Fragment {
-    const { match, isRequested, people }: Props = this.props;
+  render() {
+    const { match, isRequested, people } = this.props;
 
     return (
       <>
         <Helmet>
-          <title>Reacteum - People #{match.params.id}</title>
+          <title>
+            Reacteum - People #
+            {match.params.id}
+          </title>
           <meta name="keyword" content="reacteum,react,redux,redux-saga,react-helmet,emotion" />
         </Helmet>
-        <h1>People #{match.params.id}</h1>
+        <h1>
+          People #
+          {match.params.id}
+        </h1>
         <List match={match} />
         {isRequested ? <Spinner /> : null}
         {!isRequested && people ? (

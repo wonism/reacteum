@@ -48,3 +48,7 @@
 - Packages
   - Install `react-async-component`
   - Update `reacteum-cli`
+
+## 1.2.1 - 2018-12-29
+- Add doctype declaration
+- Update packages

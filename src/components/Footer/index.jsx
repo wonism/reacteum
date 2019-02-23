@@ -1,9 +1,9 @@
-/** @flow */
-import React, { type Element } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Anchor from '~/styled/Anchor';
 import StyledFooter from '~/styled/Footer';
 
-const Footer = ({ version }: { version: string }): Element<'footer'> => (
+const Footer = ({ version }) => (
   <StyledFooter>
     &copy;
     &nbsp;
@@ -12,9 +12,14 @@ const Footer = ({ version }: { version: string }): Element<'footer'> => (
     </Anchor>
     &nbsp;
     <small>
-      Version: {version}
+      Version:&nbsp;
+      {version}
     </small>
   </StyledFooter>
 );
+
+Footer.propTypes = {
+  version: PropTypes.string.isRequired,
+};
 
 export default Footer;

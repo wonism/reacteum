@@ -1,5 +1,4 @@
-/** @flow */
-const resolver = (a: Function, b: any) => (arg: any) => b(a(arg));
-const pipe = (...ops: Array<*>) => ops.reduce(resolver);
+const resolver = (a, b) => arg => b(a(arg));
+const pipe = (...ops) => ops.reduce(resolver);
 
 export default pipe;

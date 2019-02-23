@@ -1,4 +1,3 @@
-/** @flow */
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';

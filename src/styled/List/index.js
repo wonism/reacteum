@@ -1,7 +1,6 @@
-/** @flow */
 import styled from 'styled-components';
 
-const List: any = styled.ul`
+const List = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;

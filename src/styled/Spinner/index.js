@@ -1,7 +1,6 @@
-/** @flow */
 import styled from 'styled-components';
 
-const Spinner: any = styled.i`
+const Spinner = styled.i`
   display: block;
   width: 32px;
   height: 32px;

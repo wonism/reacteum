@@ -1,8 +1,7 @@
-/** @flow */
-import React, { type Fragment } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Home = (): Fragment => (
+const Home = () => (
   <>
     <Helmet>
       <title>Reacteum - Home</title>

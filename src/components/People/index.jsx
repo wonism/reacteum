@@ -1,18 +1,11 @@
-/** @flow */
-import React, { type Fragment } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Route } from 'react-router-dom';
 import Detail from '~/containers/People/Detail';
 import List from './List';
 
-export type Props = {
-  match: {
-    url: string,
-    isExact: boolean,
-  },
-};
-
-const People = ({ match }: Props): Fragment => (
+const People = ({ match }) => (
   <>
     <Route exact path={match.url} render={() => <h1>Select People</h1>} />
     <Route path={`${match.url}/:id`} component={Detail} />
@@ -27,5 +20,12 @@ const People = ({ match }: Props): Fragment => (
     ) : null}
   </>
 );
+
+People.propTypes = {
+  match: PropTypes.shape({
+    url: string.isRequired,
+    isExact: bool.isRequired,
+  }).isRequired,
+};
 
 export default People;

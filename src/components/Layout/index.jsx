@@ -1,15 +1,10 @@
-/** @flow */
-import React, { type Fragment, type Element } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Main from '~/styled/Main';
 import Gnb from '~/components/Gnb';
 import Footer from '~/components/Footer';
 
-type Props = {
-  children: Element<any> | null,
-  version: string,
-};
-
-const Layout = ({ children, version }: Props): Fragment => (
+const Layout = ({ children, version }) => (
   <>
     <Gnb />
     <Main>
@@ -18,5 +13,14 @@ const Layout = ({ children, version }: Props): Fragment => (
     <Footer version={version} />
   </>
 );
+
+Layout.propTypes = {
+  children: PropTypes.element,
+  version: PropTypes.string.isRequired,
+};
+
+Layout.defaultProps = {
+  children: null,
+};
 
 export default Layout;
