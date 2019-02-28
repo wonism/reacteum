@@ -15,7 +15,7 @@ import {
 export const Context = React.createContext();
 
 const Provider = ({ match, children }) => {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [{ isFetched, people, error }, dispatch] = React.useReducer(reducer, initialState);
   const { id } = match.params;
 
   React.useEffect(() => {
@@ -52,7 +52,7 @@ const Provider = ({ match, children }) => {
   }, [id]);
 
   return (
-    <Context.Provider value={{ ...state }}>
+    <Context.Provider value={{ isFetched, people, error }}>
       {children}
     </Context.Provider>
   );

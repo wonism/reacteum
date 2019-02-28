@@ -39,6 +39,7 @@ module.exports = {
     'no-console': isProduction ? error : off,
     'no-multiple-empty-lines': [error, { max: error, maxEOF: error }],
     'no-implicit-coercion': error,
+    'no-shadow': off,
     'no-undef': off,
     'no-underscore-dangle': off,
     'no-unused-vars': [
