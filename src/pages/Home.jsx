@@ -1,15 +1,11 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from '~/store';
-import Layout from '~/containers/Layout';
-import Home from '~/containers/Home';
+import Layout from '~/components/Layout';
+import Home from '~/components/Home';
 
 const HomePage = props => (
-  <Provider store={store}>
-    <Layout {...props}>
-      <Home {...props} />
-    </Layout>
-  </Provider>
+  <Layout>
+    <Home {...props} />
+  </Layout>
 );
 
 export default HomePage;

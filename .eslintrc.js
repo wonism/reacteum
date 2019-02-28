@@ -16,7 +16,6 @@ module.exports = {
     '$Diff': true,
   },
   rules: {
-    'babel/quotes': [error, 'single'],
     'comma-dangle': [
       error,
       {
@@ -54,6 +53,7 @@ module.exports = {
     'quotes': off,
     'react/jsx-filename-extension': [error, { extensions: ['.js', '.jsx'] }],
     'react/jsx-no-target-blank': error,
+    'react/jsx-one-expression-per-line': off,
     'react/no-typos': error,
     'react/no-unescaped-entities': off,
     'react/react-in-jsx-scope': off,

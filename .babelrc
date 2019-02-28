@@ -7,6 +7,7 @@
       "pragmaFrag": "React.Fragment"
     }],
     ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
+    ["@babel/plugin-proposal-pipeline-operator", { "proposal": "minimal" }],
     ["@babel/plugin-transform-runtime", { "corejs": 2 }],
     "styled-components",
     ["module-resolver", {

@@ -5,7 +5,7 @@ const Home = () => (
   <>
     <Helmet>
       <title>Reacteum - Home</title>
-      <meta name="keyword" content="reacteum,react,redux,redux-saga,react-helmet,emotion" />
+      <meta name="keyword" content="reacteum,react,react-helmet,styled-components" />
     </Helmet>
     <h1>Home</h1>
   </>

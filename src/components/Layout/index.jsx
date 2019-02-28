@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Gnb from '~/components/Layout/Gnb';
+import Footer from '~/components/Layout/Footer';
 import Main from '~/styled/Main';
-import Gnb from '~/components/Gnb';
-import Footer from '~/components/Footer';
 
-const Layout = ({ children, version }) => (
+const Layout = ({ children }) => (
   <>
     <Gnb />
     <Main>
       {children}
     </Main>
-    <Footer version={version} />
+    <Footer />
   </>
 );
 
 Layout.propTypes = {
   children: PropTypes.element,
-  version: PropTypes.string.isRequired,
 };
 
 Layout.defaultProps = {

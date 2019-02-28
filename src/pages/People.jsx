@@ -1,15 +1,11 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from '~/store';
-import Layout from '~/containers/Layout';
-import People from '~/containers/People';
+import Layout from '~/components/Layout';
+import People from '~/components/People';
 
 const PeoplePage = props => (
-  <Provider store={store}>
-    <Layout {...props}>
-      <People {...props} />
-    </Layout>
-  </Provider>
+  <Layout>
+    <People {...props} />
+  </Layout>
 );
 
 export default PeoplePage;
