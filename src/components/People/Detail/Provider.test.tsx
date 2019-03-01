@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { renderHook, cleanup, act } from 'react-hooks-testing-library';
 import { Context } from './Provider';
 import {
@@ -66,7 +66,7 @@ describe('useContext tests', () => {
 
     const value = result.current;
 
-    expect(value).toBe(undefined);
+    expect(value).toBe(null);
   });
 
   test('should get value from context', () => {

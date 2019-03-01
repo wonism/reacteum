@@ -1,6 +1,6 @@
-import React from 'react';
-import { shape, string, node } from 'prop-types';
-import { get } from '~/utils/api';
+import * as React from 'react';
+import { match } from 'react-router-dom';
+import { get } from 'utils/api';
 import {
   // initial state
   initialState,
@@ -12,9 +12,18 @@ import {
   reducer,
 } from './store';
 
-export const Context = React.createContext();
+export const Context = React.createContext(null);
 
-const Provider = ({ match, children }) => {
+interface Props {
+  match: match & {
+    params: {
+      id: string;
+    };
+  };
+  children: React.ReactNode;
+};
+
+const Provider: React.FC = ({ match, children }: Props) => {
   const [{ isFetched, people, error }, dispatch] = React.useReducer(reducer, initialState);
   const { id } = match.params;
 
@@ -56,15 +65,6 @@ const Provider = ({ match, children }) => {
       {children}
     </Context.Provider>
   );
-};
-
-Provider.propTypes = {
-  match: shape({
-    params: shape({
-      id: string.isRequired,
-    }).isRequired,
-  }).isRequired,
-  children: node.isRequired,
 };
 
 export default Provider;

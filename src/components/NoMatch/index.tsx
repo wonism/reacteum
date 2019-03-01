@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
-const NoMatch = () => (
+const NoMatch: React.FC = () => (
   <>
     <Helmet>
       <title>Reacteum - 404 Page Not Found</title>

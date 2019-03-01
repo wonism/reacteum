@@ -6,7 +6,7 @@ const config = {
     vendor: ['react', 'react-dom', 'react-router-dom', 'styled-components'],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '~': __SRC__,
       _: __ROOT__,
@@ -16,6 +16,8 @@ const config = {
   },
   module: {
     rules: [
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+      { enforce: 'pre', test: /\.jsx?$/, loader: 'source-map-loader' },
       {
         enforce: 'pre',
         test: /\.jsx?$/,
@@ -27,12 +29,11 @@ const config = {
           emitWarning: true,
         },
       },
-      {
-        test: /\.jsx?$/,
-        use: 'babel-loader',
-        exclude: /node_modules|bower_components/,
-      },
     ],
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM'
   },
 };
 

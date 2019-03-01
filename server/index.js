@@ -4,7 +4,7 @@ import logger from 'morgan';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
-import { bodyStyles } from '~/constants';
+import { bodyStyles } from '../src/constants';
 import App from './app';
 import html from './html';
 import { entry } from '../config/webpack.config.base';

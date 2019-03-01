@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Home = () => (
+const Home: React.FC = () => (
   <>
     <Helmet>
       <title>Reacteum - Home</title>

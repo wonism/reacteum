@@ -1,12 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { Route } from 'react-router-dom';
+import { Route, match } from 'react-router-dom';
 // dumb components
-import Detail from '~/components/People/Detail';
-import List from '~/components/People/List';
+import Detail from 'components/People/Detail';
+import List from 'components/People/List';
 
-const People = ({ match }) => (
+interface Props {
+  match: match;
+  children: React.ReactNode;
+};
+
+const People: React.FC = ({ match }: Props) => (
   <>
     <Route exact path={match.url} render={() => <h1>Select People</h1>} />
     <Route path={`${match.url}/:id`} component={Detail} />
@@ -21,12 +25,5 @@ const People = ({ match }) => (
     ) : null}
   </>
 );
-
-People.propTypes = {
-  match: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    isExact: PropTypes.bool.isRequired,
-  }).isRequired,
-};
 
 export default People;

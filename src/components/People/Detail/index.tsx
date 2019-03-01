@@ -1,13 +1,22 @@
-import React from 'react';
-import { shape, string } from 'prop-types';
+import * as React from 'react';
+import { Route, match } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 // context
-import Provider, { Context } from '~/components/People/Detail/Provider';
+import Provider, { Context } from 'components/People/Detail/Provider';
 // dumb components
-import List from '~/components/People/List';
-import Spinner from '~/styled/Spinner';
+import List from 'components/People/List';
+import Spinner from 'styled/Spinner';
 
-const Detail = ({ match }) => {
+interface Props {
+  match: match & {
+    params: {
+      id: string;
+    };
+  };
+  children?: React.ReactNode;
+};
+
+const Detail: React.FC = ({ match }: Props) => {
   const { isFetched, people, error } = React.useContext(Context);
   const { id } = match.params;
 
@@ -40,7 +49,7 @@ const Detail = ({ match }) => {
             )}
             {error === null ? null : (
               <p>
-                Failed to fetch!ERROR
+                Failed to fetch!
               </p>
             )}
           </>
@@ -50,15 +59,7 @@ const Detail = ({ match }) => {
   );
 };
 
-Detail.propTypes = {
-  match: shape({
-    params: shape({
-      id: string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-export default props => (
+export default (props: Props) => (
   <Provider {...props}>
     <Detail {...props} />
   </Provider>

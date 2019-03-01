@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-const Header = styled.header`
+const Footer = styled.header<{}>`
   height: 32px;
   line-height: 32px;
+  text-align: center;
 `;
 
-export default Header;
+export default Footer;

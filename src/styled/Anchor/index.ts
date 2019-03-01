@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { anchorStyle } from '~/styled/css';
+import { anchorStyle } from 'styled/css';
 
-const Anchor = styled.a`
+const Anchor = styled.a<{}>`
   ${anchorStyle}
 `;
 

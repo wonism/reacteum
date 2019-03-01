@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -6,21 +6,21 @@ import {
   Switch,
 } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import { bodyStyles } from 'constants';
 import {
   Home,
   People,
   NoMatch,
-} from '~/pages';
-import { bodyStyles } from '~/constants';
+} from 'pages';
 
-const root = global.document.getElementById('app-root');
+const root: Element = document.getElementById('app-root');
 const GlobalStyle = createGlobalStyle`
   body {
     ${bodyStyles}
   }
 `;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Router>
       <Switch>

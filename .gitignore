@@ -17,6 +17,10 @@ node_modules/
 *.log
 *.gz
 
+# build
 public/
 build/
 storybook-static/
+
+# test
+.reports

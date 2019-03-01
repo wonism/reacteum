@@ -1,4 +1,4 @@
-export const bodyStyles = `
+export const bodyStyles: string = `
   margin: 0;
   box-sizing: border-box;
 

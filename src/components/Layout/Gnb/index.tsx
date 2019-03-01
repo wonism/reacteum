@@ -1,9 +1,9 @@
-import React from 'react';
-import Header from '~/styled/Header';
-import Link from '~/styled/Link';
-import List from '~/styled/List';
+import * as React from 'react';
+import Header from 'styled/Header';
+import Link from 'styled/Link';
+import List from 'styled/List';
 
-const Gnb = () => (
+const Gnb: React.FC = () => (
   <Header>
     <nav>
       <List>

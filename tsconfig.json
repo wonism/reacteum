@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es2015", "dom"],
+    "jsx": "react",
+    "baseUrl": "./src",
+    "typeRoots": [
+      "node_modules/@types/react",
+      "node_modules/@types/react-dom",
+      "node_modules/@types/react-router-dom",
+      "node_modules/@types/styled-components",
+      "src/types"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+
+  "exclude": [
+    "./src/**/*.test.ts",
+    "./src/**/*.test.tsx"
+  ]
+}

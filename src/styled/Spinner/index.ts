@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const Spinner = styled.i`
+const Spinner = styled.i<{ color?: string }>`
   display: block;
   width: 32px;
   height: 32px;
-  background-color: ${({ color }) => color};
+  background-color: ${({ color = '#e59' }) => color};
   -webkit-animation: spin 1.2s infinite ease-in-out;
   animation: spin 1.2s infinite ease-in-out;
 
@@ -23,9 +23,5 @@ const Spinner = styled.i`
     }
   }
 `;
-
-Spinner.defaultProps = {
-  color: '#e59',
-};
 
 export default Spinner;

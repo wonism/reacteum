@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Main = styled.main`
+const Main = styled.main<{}>`
   margin: auto;
   max-width: 96%;
   min-height: calc(100vh - 64px);
